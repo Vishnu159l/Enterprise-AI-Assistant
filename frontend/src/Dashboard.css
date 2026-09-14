@@ -1,0 +1,131 @@
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    justify-content: space-between;
+    background-color: #dddddd;
+    background-size: cover; 
+}
+
+.Profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+.Logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.dropdown-menu.active {
+    display: block;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f4f4f9;
+}
+
+.dropdown-menu p {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.dropdown-menu p:hover {
+    background-color: #f4f4f9;
+}
+
+.profile-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left:30px;
+}
+
+.profile-button img {
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+}
+
+.user-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    height: 100px;
+    padding: 0 10px 0 10px;
+    justify-content: space-between;
+    background-size: cover; 
+    align-items: center;
+}
+
+.query-button {
+    
+    width: 100px;
+    padding: 10px;
+    height: 40px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.query-button:hover {
+    background-color: #357abd;
+}
+
+.query-input {
+    width: 100%;
+    padding: 12px;
+    margin-right: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.response-container{
+    margin: 10px;
+    padding: 10px;
+}
+
+.resp{
+    display: none;
+    background-color: #d5ffff;
+    padding: 10px;
+    border-radius: 10px;
+}
