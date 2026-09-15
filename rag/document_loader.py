@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 IGNORED_DIRS = {'node_modules', 'venv', 'env', 'dist', 'build', '.git','__pycache__', '.next', '.vscode', 'vendor'}
 
@@ -7,7 +8,7 @@ def get_file_content(file_path,repo_path):
         with open(file_path, 'r', encoding ='utf-8') as f:
             content = f.read()
         rel_path = os.path.relpath(file_path,repo_path)
-        file_name,directory = rel_path.split("\\")[0],rel_path.split("\\")[1]
+        directory,file_name = rel_path.split("\\")[0],rel_path.split("\\")[-1]
         return {"content":content,"department":directory,"source":file_name}
     except Exception as e:
         print("Error reading file")

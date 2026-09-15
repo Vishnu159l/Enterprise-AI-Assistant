@@ -5,9 +5,9 @@ backend_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.dirname(backend_dir)
 
 sys.path.insert(0, root_dir)
-sys.path.insert(0, os.path.join(root_dir, "app", "rag"))
+sys.path.insert(0, os.path.join(root_dir,"rag"))
 
-from app.rag.retriever import retriever
+from rag.retriever import retriever
 
 async def rag_retrieve(query,role):
     res = retriever(query,role)

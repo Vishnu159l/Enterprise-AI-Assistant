@@ -10,7 +10,6 @@ client = OpenAI(
     api_key="lm-studio"
 )
 
-
 chroma_client = chromadb.PersistentClient(path = repo_path + "./chroma_db")
 collection = chroma_client.get_collection(name = "codebase")
 
@@ -18,12 +17,13 @@ def retriever(query,role):
     embedding_response = generate_embedding(query)
 
     query_embedding = embedding_response.data[0].embedding
-    print(role)
+    print(role[0])
     result = collection.query(
         query_embeddings = query_embedding,
         n_results = 5,
-        where={"department": role[0]}
+        where = {"department": role[0]}
     )
+
 
     documents = result["documents"][0]
     metadatas = result["metadatas"][0]
@@ -32,7 +32,7 @@ def retriever(query,role):
 
     for i in range(len(documents)):
         context += f"""
-    FILE: {metadatas[i]["name"]}
+    FILE: {metadatas[i]["source"]}
     {documents[i]}
     --------------------
     """
@@ -101,7 +101,7 @@ Sources:
 
 If the context is insufficient:
 
-'I don't have sufficient authorised information to answer this question.'"""},
+"I don't have sufficient authorised information to answer this question.""""},
         {"role": "user", "content": f"""
     Context:
     {context}

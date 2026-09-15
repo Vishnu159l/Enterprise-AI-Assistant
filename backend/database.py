@@ -65,6 +65,8 @@ def add_user(name,password,role):
     """,(id[0] + 1,name,hashed_password,role),)
 
 def view_table():
+    conn = sqlite3.connect("EmployeeDatabase.db")
+    cursor = conn.cursor()
     cursor.execute("SELECT * FROM Employee")
     for row in cursor.fetchall():
         print(row)
@@ -81,32 +83,37 @@ def get_user_data(id):
     res = cursor.fetchone()
     return res
     
-#cursor.execute("DROP TABLE Employee")
+
+#conn = sqlite3.connect("EmployeeDatabase.db")
+#cursor = conn.cursor()
+#cursor.execute("SELECT * FROM Employee;")
+#print(cursor.fetchall())
 
 #cursor.execute("""
-#REATE TABLE Employee (
+#CREATE TABLE Employee (
 #    empId int,
 #    name varchar(30),
-#    password varchar(30),
-#    role varchar(30)
-#
+#    password varchar(60),
+#   role varchar(30));
 #""")
 
 #cursor.execute("""
-#INSERT INTO Employee 
+#NSERT INTO Employee 
 #Values
-#    (1,'Vishnu','Manid@159l','Admin'),
-#    (2,'Akhil','asdfghjkl;','Hr'),
-#    (3,'Prakash','nigger','Engineer');
+#   (1,'Vishnu','Manid@159l','finance'),
+#    (2,'Akhil','asdfghjkl;','hr'),
+#    (3,'Prakash','nigger','engineer');
 #""")
 
 #cursor.execute("SELECT * FROM Employee")
 #print(cursor.fetchall())
 
-#add_user('Vishnu','Manid@159l','Admin')
-#add_user('Akhil','asdfghjkl;','Hr')
-#add_user('Prakash','nigger','Engineer')
+#add_user('Vishnu','Manid@159l','finance')
+#add_user('Akhil','asdfghjkl;','hr')
+#add_user('Prakash','nigger','engineer')
 #delete_user(5)
+#cursor.execute("SELECT * FROM Employee")
+#print(cursor.fetchall())
 
 
 
